@@ -33,7 +33,7 @@ header {
    height: 800px;
    min-height: 500px;
    width: 100%;
-   background: #161415 url(../images/header-background.jpg) no-repeat top center;
+   /*background: #161415 url(../images/header-background.jpg) no-repeat top center;*/
    background-size: cover !important;
 	-webkit-background-size: cover !important;
    text-align: center;
@@ -41,18 +41,18 @@ header {
 }
 
 /* vertically center banner section */
-header:before {
+/*header:before {
    content: '';
    display: inline-block;
    vertical-align: middle;
    height: 100%;
-}
+}*/
 header .banner {
    display: inline-block;
    vertical-align: middle;
    margin: 0 auto;
    width: 85%;
-   padding-bottom: 30px;s
+   padding-bottom: 30px;
    text-align: center;
 }
 
@@ -1005,4 +1005,29 @@ footer .social-links li:first-child { margin-left: 0; }
  	border-radius: 100%;
 }
 #go-top a:hover { background-color: #0F9095; }
+
+
+/*https://codepen.io/jasperlachance/pen/QNMwBg*/
+
+.large-header {
+   position: relative;
+   width: 100%;
+   background: #111;
+   overflow: hidden;
+   background-size: cover;
+   background-position: center center;
+   z-index: 1;
+   background-image: url("../images/demo-bg.jpg");
+}
+
+.main-title {
+   position: absolute;
+   margin: 0;
+   padding: 0;
+   top: 50%;
+   left: 50%;
+   width: 100%;
+   -webkit-transform: translate3d(-50%, -50%, 0);
+   transform: translate3d(-50%, -50%, 0);
+}
 
