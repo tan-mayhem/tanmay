@@ -11,7 +11,12 @@
 <body>
     <nav>
         <div class="nav-content">
-            <div class="nav-links">
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="site-nav">
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
@@ -29,9 +34,9 @@
         <section id="about" class="section">
             <div class="section-content">
                 <h1>Tanmay Bagaria</h1>
-                <p class="bio">Curious about systems, both technical and natural. I spend my time working on backend systems, exploring how things fit and scale. I enjoy reading, wandering and learning how things work.</p>
+                <p class="bio">Curious about systems, both technical and natural. I spend my time working on backend and AI systems, exploring how things fit and scale. I enjoy reading, wandering and learning how things work.</p>
                 <p class="bio">Outside of tech, I'm exploring sustainable ventures on my family's tea estate.</p>
-                <p class="bio collaboration">Open to research and project collaborations. Say hi on <a href="mailto:tanmaybagaria@ymail.com">email</a> or <a href="https://www.linkedin.com/in/tanmaybagaria/" target="_blank">LinkedIn</a>!</p>
+                <p class="bio collaboration">Say hi on <a href="https://www.linkedin.com/in/tanmaybagaria/" target="_blank">LinkedIn</a>!</p>
             </div>
         </section>
 
@@ -45,8 +50,8 @@
                     <div class="work-content">
                         <h3>Oracle America, Inc</h3>
                         <p class="role">Software Engineer</p>
-                        <p class="period">Aug 2020 – Present</p>
-                        <p>Built distributed database systems, streaming platforms, and cloud infrastructure. Created demos and POCs focusing on client applications, storage engines, and system architecture.</p>
+                        <p class="period">2020 – Present</p>
+                        <p>Worked on the fastest OLTP database, zero-latency cache, next-generation scale-out engine with absolute availability, high-performance streaming, vector database systems, and AI agents.</p>
                     </div>
                 </div>
 
@@ -57,7 +62,7 @@
                     <div class="work-content">
                         <h3>MentorCruise</h3>
                         <p class="role">Tech Mentor</p>
-                        <p class="period">Sep 2020 – May 2021</p>
+                        <p class="period">2020 - 2021</p>
                         <p>Guided professionals in building and deploying web applications, with a focus on modern full-stack development.</p>
                     </div>
                 </div>
@@ -69,8 +74,8 @@
                     <div class="work-content">
                         <h3>Fetch Rewards, Inc</h3>
                         <p class="role">Software Engineer, Intern</p>
-                        <p class="period">Jan 2020 – May 2020</p>
-                        <p>Developed internal dashboard and analytics tools for the CPG sector. Built data processing pipelines and improved mobile application features.</p>
+                        <p class="period">2020</p>
+                        <p>Adding features to the App+Internal Productivity</p>
                     </div>
                 </div>
 
@@ -81,8 +86,8 @@
                     <div class="work-content">
                         <h3>University of Wisconsin-Madison</h3>
                         <p class="role">Undergraduate Teaching Assistant</p>
-                        <p class="period">Jan 2019 – May 2020</p>
-                        <p>Courses: Introduction to Artificial Intelligence (x3), Systems Programming (x2), Algorithms. Held office hours, review sessions and helped students with their coursework.</p>
+                        <p class="period">2019 - 2020</p>
+                        <p>Courses: Introduction to Artificial Intelligence (x3), Systems Programming (x2), Algorithms.</p>
                     </div>
                 </div>
 
@@ -93,8 +98,8 @@
                     <div class="work-content">
                         <h3>UW-Madison Department of Biochemistry</h3>
                         <p class="role">Undergraduate Researcher</p>
-                        <p class="period">Jan 2019 – May 2019</p>
-                        <p>Developed C++ clustering algorithms for analyzing high-dimensional protein interactions using the MSL library.</p>
+                        <p class="period">2019</p>
+                        <p>Developed clustering algorithms for analyzing high-dimensional protein interactions.</p>
                     </div>
                 </div>
 
@@ -105,8 +110,8 @@
                     <div class="work-content">
                         <h3>Zomato</h3>
                         <p class="role">Product Manager, Intern</p>
-                        <p class="period">May 2018 – Jun 2018</p>
-                        <p>Expanded corporate client base through enterprise outreach and market research. Analyzed performance metrics for corporate and university segments.</p>
+                        <p class="period">2018</p>
+                        <p>Market research, client outreach, and growth.</p>
                     </div>
                 </div>
             </div>
@@ -190,27 +195,55 @@
                         <h3>Papers</h3>
                         <ul class="reading-list">
                             <li>
-                                <a href="https://arxiv.org/pdf/2305.14314.pdf" target="_blank" class="book-title">Learning to Adapt Pre-trained Language Models to Unseen Domains</a>
+                                <span class="book-title">Learning to Adapt Pre-trained Language Models to Unseen Domains</span>
                                 <span class="author">2023</span>
                             </li>
                             <li>
-                                <a href="https://arxiv.org/pdf/2209.07663.pdf" target="_blank" class="book-title">Efficient Online Learning for Large-Scale Real-Time Systems</a>
+                                <span class="book-title">Efficient Online Learning for Large-Scale Real-Time Systems</span>
                                 <span class="author">2022</span>
                             </li>
                             <li>
-                                <a href="https://arxiv.org/pdf/2304.04859.pdf" target="_blank" class="book-title">Understanding and Optimizing Multi-Stage AI Inference Pipelines</a>
+                                <span class="book-title">Understanding and Optimizing Multi-Stage AI Inference Pipelines</span>
                                 <span class="author">2023</span>
                             </li>
                             <li>
-                                <a href="https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf" target="_blank" class="book-title">Amazon's Dynamo</a>
+                                <span class="book-title">The Tail at Scale</span>
+                                <span class="author">2013</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Attention Is All You Need</span>
+                                <span class="author">2017</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</span>
+                                <span class="author">2020</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Direct Preference Optimization</span>
+                                <span class="author">2023</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Life Beyond Distributed Transactions: an Apostate’s Opinion</span>
+                                <span class="author">2008</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Tango: Distributed Data Structures over a Shared Log</span>
+                                <span class="author">2013</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Harvest, Yield, and Scalable Tolerant Systems</span>
+                                <span class="author">1999</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Amazon's Dynamo</span>
                                 <span class="author">2007</span>
                             </li>
                             <li>
-                                <a href="https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf" target="_blank" class="book-title">MapReduce: Simplified Data Processing</a>
+                                <span class="book-title">MapReduce: Simplified Data Processing</span>
                                 <span class="author">2004</span>
                             </li>
                             <li>
-                                <a href="https://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf" target="_blank" class="book-title">The Google File System</a>
+                                <span class="book-title">The Google File System</span>
                                 <span class="author">2003</span>
                             </li>
                         </ul>
@@ -220,20 +253,36 @@
                         <h3>Technical</h3>
                         <ul class="reading-list">
                             <li>
-                                <a href="https://dataintensive.net/" target="_blank" class="book-title">Designing Data-Intensive Applications</a>
+                                <span class="book-title">Designing Data-Intensive Applications</span>
                                 <span class="author">Martin Kleppmann</span>
                             </li>
                             <li>
-                                <a href="https://sre.google/sre-book/table-of-contents/" target="_blank" class="book-title">Site Reliability Engineering</a>
+                                <span class="book-title">Site Reliability Engineering</span>
                                 <span class="author">Google SRE Team</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164?tag=fj4502-20" target="_blank" class="book-title">Clean Architecture</a>
+                                <span class="book-title">Clean Architecture</span>
                                 <span class="author">Robert C. Martin</span>
                             </li>
                             <li>
-                                <a href="https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/" target="_blank" class="book-title">The Pragmatic Programmer</a>
+                                <span class="book-title">The Pragmatic Programmer</span>
                                 <span class="author">Dave Thomas & Andy Hunt</span>
+                            </li>
+                            <li>
+                                <span class="book-title">The Beginning of Infinity</span>
+                                <span class="author">David Deutsch</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Seeing Like a State</span>
+                                <span class="author">James C. Scott</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Finite and Infinite Games</span>
+                                <span class="author">James P. Carse</span>
+                            </li>
+                            <li>
+                                <span class="book-title">The Psychology of Money</span>
+                                <span class="author">Morgan Housel</span>
                             </li>
                         </ul>
                     </div>
@@ -244,36 +293,64 @@
                         <h3>Non-Fiction</h3>
                         <ul class="reading-list">
                             <li>
-                                <a href="https://www.amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555?tag=fj4502-20" target="_blank" class="book-title">Thinking, Fast and Slow</a>
+                                <span class="book-title">Thinking, Fast and Slow</span>
                                 <span class="author">Daniel Kahneman</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Psychology-Money-Timeless-Lessons-Happiness/dp/0857197681?tag=fj4502-20" target="_blank" class="book-title">The Psychology of Money</a>
+                                <span class="book-title">The Psychology of Money</span>
                                 <span class="author">Morgan Housel</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Simple-Path-Wealth-financial-independence/dp/1533667926?tag=fj4502-20" target="_blank" class="book-title">The Simple Path to Wealth</a>
+                                <span class="book-title">The Simple Path to Wealth</span>
                                 <span class="author">JL Collins</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Secrets-Sand-Hill-Road-Venture/dp/059308358X?tag=fj4502-20" target="_blank" class="book-title">Secrets of Sand Hill Road</a>
+                                <span class="book-title">Secrets of Sand Hill Road</span>
                                 <span class="author">Scott Kupor</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Platform-Revolution-Networked-Markets-Transforming/dp/0393354350?tag=fj4502-20" target="_blank" class="book-title">Platform Revolution</a>
+                                <span class="book-title">Platform Revolution</span>
                                 <span class="author">Geoffrey G. Parker et al.</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/How-Create-Mind-Thought-Revealed/dp/0143124048?tag=fj4502-20" target="_blank" class="book-title">How to Create a Mind</a>
+                                <span class="book-title">How to Create a Mind</span>
                                 <span class="author">Ray Kurzweil</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Emperor-All-Maladies-Biography-Cancer/dp/1439170916?tag=fj4502-20" target="_blank" class="book-title">The Emperor of All Maladies</a>
+                                <span class="book-title">The Emperor of All Maladies</span>
                                 <span class="author">Siddhartha Mukherjee</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Chip-War-Dominance-Critical-Technology/dp/1982172002?tag=fj4502-20" target="_blank" class="book-title">Chip War</a>
+                                <span class="book-title">Chip War</span>
                                 <span class="author">Chris Miller</span>
+                            </li>
+                            <li>
+                                <span class="book-title">The WEIRDest People in the World</span>
+                                <span class="author">Joseph Henrich</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Man's Search for Meaning</span>
+                                <span class="author">Viktor E. Frankl</span>
+                            </li>
+                            <li>
+                                <span class="book-title">The Revolt of the Public</span>
+                                <span class="author">Martin Gurri</span>
+                            </li>
+                            <li>
+                                <span class="book-title">The Black Swan</span>
+                                <span class="author">Nassim Nicholas Taleb</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Poor Charlie's Almanack</span>
+                                <span class="author">Charles T. Munger</span>
+                            </li>
+                            <li>
+                                <span class="book-title">The Art of War</span>
+                                <span class="author">Sun Tzu</span>
+                            </li>
+                            <li>
+                                <span class="book-title">The Book of Why</span>
+                                <span class="author">Judea Pearl</span>
                             </li>
                         </ul>
                     </div>
@@ -282,36 +359,60 @@
                         <h3>Fiction</h3>
                         <ul class="reading-list">
                             <li>
-                                <a href="https://www.amazon.com/Project-Hail-Mary-Andy-Weir/dp/0593135202?tag=fj4502-20" target="_blank" class="book-title">Project Hail Mary</a>
+                                <span class="book-title">Project Hail Mary</span>
                                 <span class="author">Andy Weir</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Snow-Crash-Neal-Stephenson/dp/0553380958?tag=fj4502-20" target="_blank" class="book-title">Snow Crash</a>
+                                <span class="book-title">Snow Crash</span>
                                 <span class="author">Neal Stephenson</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Little-Fires-Everywhere-Celeste-Ng/dp/0735224293?tag=fj4502-20" target="_blank" class="book-title">Little Fires Everywhere</a>
+                                <span class="book-title">Little Fires Everywhere</span>
                                 <span class="author">Celeste Ng</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Midnight-Library-Novel-Matt-Haig/dp/0525559477?tag=fj4502-20" target="_blank" class="book-title">The Midnight Library</a>
+                                <span class="book-title">The Midnight Library</span>
                                 <span class="author">Matt Haig</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Recursion-Novel-Blake-Crouch/dp/1524759783?tag=fj4502-20" target="_blank" class="book-title">Recursion</a>
+                                <span class="book-title">Recursion</span>
                                 <span class="author">Blake Crouch</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Vegetarian-Novel-Han-Kang/dp/0553448188?tag=fj4502-20" target="_blank" class="book-title">The Vegetarian</a>
+                                <span class="book-title">The Vegetarian</span>
                                 <span class="author">Han Kang</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Klara-Sun-Novel-Kazuo-Ishiguro/dp/059331817X?tag=fj4502-20" target="_blank" class="book-title">Klara and the Sun</a>
+                                <span class="book-title">Klara and the Sun</span>
                                 <span class="author">Kazuo Ishiguro</span>
                             </li>
                             <li>
-                                <a href="https://www.amazon.com/Piranesi-Susanna-Clarke/dp/1635577802?tag=fj4502-20" target="_blank" class="book-title">Piranesi</a>
+                                <span class="book-title">Never Let Me Go</span>
+                                <span class="author">Kazuo Ishiguro</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Exhalation</span>
+                                <span class="author">Ted Chiang</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Stoner</span>
+                                <span class="author">John Williams</span>
+                            </li>
+                            <li>
+                                <span class="book-title">Piranesi</span>
                                 <span class="author">Susanna Clarke</span>
+                            </li>
+                            <li>
+                                <span class="book-title">The Tartar Steppe</span>
+                                <span class="author">Dino Buzzati</span>
+                            </li>
+                            <li>
+                                <span class="book-title">The Rings of Saturn</span>
+                                <span class="author">W.G. Sebald</span>
+                            </li>
+                            <li>
+                                <span class="book-title">The Employees</span>
+                                <span class="author">Olga Ravn</span>
                             </li>
                         </ul>
                     </div>
@@ -323,5 +424,36 @@
     <footer>
         <p>© 2024 Tanmay Bagaria</p>
     </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (menuToggle && navLinks) {
+            const closeMenu = () => {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('is-open');
+            };
+
+            menuToggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                menuToggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            navLinks.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 480) {
+                        closeMenu();
+                    }
+                });
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 480) {
+                    closeMenu();
+                }
+            });
+        }
+    </script>
 </body>
 </html> 
