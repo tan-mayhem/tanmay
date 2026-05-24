@@ -6,7 +6,6 @@
     <meta name="google-site-verification" content="9Y4r4R_TmkMWe7yPjI1tqmQWvXnWBvzkING3MW1bnVQ" />
     <title>Tanmay Bagaria | Software Engineer</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -17,182 +16,70 @@
                 <span></span>
             </button>
             <div class="nav-links" id="site-nav">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#reading">Reading List</a>
-                <a href="TanmayBagaria_Resume.pdf" download="TanmayBagaria_Resume.pdf">Resume</a>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/tanmaybagaria/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:tanmaybagaria@ymail.com"><i class="far fa-envelope"></i></a>
-                </div>
+                <a href="#about">home</a>
+                <a href="#experience">work</a>
+                <a href="#projects">projects</a>
+                <a href="#reading">reading</a>
+                <a href="https://www.linkedin.com/in/tanmaybagaria/" target="_blank" rel="noopener">linkedin</a>
+                <a href="mailto:tanmaybagaria@ymail.com">email</a>
             </div>
         </div>
     </nav>
 
     <main>
-        <section id="about" class="section">
-            <div class="section-content">
-                <h1>Tanmay Bagaria</h1>
-                <p class="bio">Curious about systems, both technical and natural. I spend my time working on backend and AI systems, exploring how things fit and scale. I enjoy reading, wandering and learning how things work.</p>
-                <p class="bio">Outside of tech, I'm exploring sustainable ventures on my family's tea estate.</p>
-                <p class="bio collaboration">Say hi on <a href="https://www.linkedin.com/in/tanmaybagaria/" target="_blank">LinkedIn</a>!</p>
+        <section id="about" class="section hero">
+            <div class="section-content intro">
+                <div>
+                    <h1>Tanmay Bagaria</h1>
+                    <p class="bio">Software engineer at Oracle working on backend systems, databases, streaming, vector search, and AI agents.</p>
+                    <p class="bio">Curious about systems, both technical and natural. I spend my time working on backend and AI systems, exploring how things fit and scale. I enjoy reading, wandering and learning how things work.</p>
+                    <p class="bio">Outside of tech, I'm exploring sustainable ventures on my family's tea estate.</p>
+                    <p class="bio collaboration"><a href="https://www.linkedin.com/in/tanmaybagaria/" target="_blank" rel="noopener">say hi on linkedin</a></p>
+                </div>
+                <img class="profile-image" src="images/profilepic.jpg" alt="Tanmay Bagaria">
             </div>
         </section>
 
         <section id="experience" class="section">
-            <h2>Experience</h2>
+            <h2>Work</h2>
             <div class="section-content">
-                <div class="work-item">
-                    <div class="company-logo logo-oracle">
-                        <img src="assets/Oracle-Logo.png" alt="Oracle Logo">
-                    </div>
-                    <div class="work-content">
-                        <h3>Oracle America, Inc</h3>
-                        <p class="role">Software Engineer</p>
-                        <p class="period">2020 – Present</p>
-                        <p>Worked on the fastest OLTP database, zero-latency cache, next-generation scale-out engine with absolute availability, high-performance streaming, vector database systems, and AI agents.</p>
-                    </div>
-                </div>
-
-                <div class="work-item">
-                    <div class="company-logo logo-mentorcruise">
-                        <img src="assets/mentorcruise.png" alt="MentorCruise Logo">
-                    </div>
-                    <div class="work-content">
-                        <h3>MentorCruise</h3>
-                        <p class="role">Tech Mentor</p>
-                        <p class="period">2020 - 2021</p>
-                        <p>Guided professionals in building and deploying web applications, with a focus on modern full-stack development.</p>
-                    </div>
-                </div>
-
-                <div class="work-item">
-                    <div class="company-logo logo-fetch">
-                        <img src="assets/fetch.png" alt="Fetch Rewards Logo">
-                    </div>
-                    <div class="work-content">
-                        <h3>Fetch Rewards, Inc</h3>
-                        <p class="role">Software Engineer, Intern</p>
-                        <p class="period">2020</p>
-                        <p>Adding features to the App+Internal Productivity</p>
-                    </div>
-                </div>
-
-                <div class="work-item">
-                    <div class="company-logo logo-uw">
-                        <img src="assets/uw-madison.png" alt="UW-Madison Logo">
-                    </div>
-                    <div class="work-content">
-                        <h3>University of Wisconsin-Madison</h3>
-                        <p class="role">Undergraduate Teaching Assistant</p>
-                        <p class="period">2019 - 2020</p>
-                        <p>Courses: Introduction to Artificial Intelligence (x3), Systems Programming (x2), Algorithms.</p>
-                    </div>
-                </div>
-
-                <div class="work-item">
-                    <div class="company-logo logo-biochem">
-                        <img src="assets/biochemistry.jpeg" alt="UW Biochemistry Logo">
-                    </div>
-                    <div class="work-content">
-                        <h3>UW-Madison Department of Biochemistry</h3>
-                        <p class="role">Undergraduate Researcher</p>
-                        <p class="period">2019</p>
-                        <p>Developed clustering algorithms for analyzing high-dimensional protein interactions.</p>
-                    </div>
-                </div>
-
-                <div class="work-item">
-                    <div class="company-logo logo-zomato">
-                        <img src="assets/Zomato-logo.png" alt="Zomato Logo">
-                    </div>
-                    <div class="work-content">
-                        <h3>Zomato</h3>
-                        <p class="role">Product Manager, Intern</p>
-                        <p class="period">2018</p>
-                        <p>Market research, client outreach, and growth.</p>
-                    </div>
-                </div>
+                <ul class="plain-list">
+                    <li><span>Oracle America</span> Software Engineer, 2020-present. Databases, cache, scale-out engines, streaming, vector systems, AI agents.</li>
+                    <li><span>MentorCruise</span> Tech Mentor, 2020-2021. Helped professionals build and ship web applications.</li>
+                    <li><span>Fetch Rewards</span> Software Engineer Intern, 2020. App and internal productivity tooling.</li>
+                    <li><span>UW-Madison</span> Undergraduate TA, 2019-2020. AI, systems programming, algorithms.</li>
+                    <li><span>UW Biochemistry</span> Undergraduate Researcher, 2019. Clustering algorithms for protein interaction data.</li>
+                    <li><span>Zomato</span> Product Manager Intern, 2018. Market research, client outreach, and growth.</li>
+                </ul>
             </div>
         </section>
 
         <section id="projects" class="section">
             <h2>Projects</h2>
             <div class="section-content">
-                <div class="project-grid">
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Virtual Shopping Assistant</h3>
-                            <p class="project-description">AI-powered voice assistant for natural language shopping with bidirectional chat interface.</p>
-                            <p class="project-date">June 2021</p>
-                        </div>
-                    </div>
+                <h3 class="subsection-title">Competitions</h3>
+                <ul class="plain-list">
+                    <li><span>2nd place</span> Google I/O Kickoff May 2026. AI football scouting app using video segmentation, multimodal analysis, and RocketRide/GMI pipelines. <a href="https://www.loom.com/share/d81d6510faf94ddf967d330e0ec13c6d" target="_blank" rel="noopener">demo</a> <a href="https://github.com/tan-mayhem/WorldCupHack" target="_blank" rel="noopener">github</a></li>
+                    <li><span>3rd place</span> Ara X SF Hackathon, May 2026. AI kitchen companion to recommend cooking, restocking, or ordering food. <a href="https://ara-sf-hack.mentormates.ai/projects/3250ca99-6928-4ce2-9001-5676a15a25aa" target="_blank" rel="noopener">project</a> <a href="https://github.com/tan-mayhem/pantry-pilot" target="_blank" rel="noopener">github</a></li>
+                    <li><span>Best JS</span> HackUIowa 2019. Flood Watch, a location-based flood alert system using elevation data and weather APIs. <a href="https://devpost.com/software/flood-watch-zxp78s" target="_blank" rel="noopener">devpost</a></li>
+                    <li><span>Best GCP</span> MinneHack 2019. Farm Excess, a platform connecting farmers' excess produce with community members and smart recipe suggestions. <a href="https://devpost.com/software/farmers-excess" target="_blank" rel="noopener">devpost</a></li>
+                </ul>
 
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Entity Matching</h3>
-                            <p class="project-description">Machine learning system using fuzzy string matching to predict similarity between CSV documents with 91% accuracy.</p>
-                            <p class="project-date">May 2020</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Flood Watch</h3>
-                            <p class="project-description">Location-based flood alert system with elevation data and weather APIs. React frontend with AWS backend.</p>
-                            <div class="project-awards">
-                                <span class="award">🏆 Best JS - HackUIowa '19</span>
-                            </div>
-                            <p class="project-date">October 2019</p>
-                            <div class="project-links">
-                                <a href="https://devpost.com/software/flood-watch-zxp78s" class="project-link" target="_blank">View Project →</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">LandYourGreen.space</h3>
-                            <p class="project-description">Land auction platform with real-time bidding, SMS alerts, and environmental analytics.</p>
-                            <p class="project-date">April 2019</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Farm Excess</h3>
-                            <p class="project-description">Platform connecting farmers' excess produce with community members, featuring smart recipe suggestions.</p>
-                            <div class="project-awards">
-                                <span class="award">🏆 Best GCP - MinneHack '19</span>
-                            </div>
-                            <p class="project-date">January 2019</p>
-                            <div class="project-links">
-                                <a href="https://devpost.com/software/farmers-excess" class="project-link" target="_blank">View Project →</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Chain Voting</h3>
-                            <p class="project-description">Decentralized blockchain voting system with Firebase auth and Python TCP sockets for real-time tracking.</p>
-                            <p class="project-date">February 2018</p>
-                            <div class="project-links">
-                                <a href="https://devpost.com/software/chain-voting" class="project-link" target="_blank">View Project →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="subsection-title">Other projects</h3>
+                <ul class="plain-list">
+                    <li><span>Virtual Shopping Assistant</span> Voice-first shopping assistant with a bidirectional chat interface.</li>
+                    <li><span>Entity Matching</span> Fuzzy matching system for CSV similarity prediction with 91% accuracy.</li>
+                    <li><span>LandYourGreen.space</span> Land auction platform with real-time bidding, SMS alerts, and environmental analytics.</li>
+                    <li><span>Chain Voting</span> Blockchain voting with Firebase auth and Python TCP sockets. <a href="https://devpost.com/software/chain-voting" target="_blank" rel="noopener">devpost</a></li>
+                </ul>
             </div>
         </section>
 
         <section id="reading" class="section">
-            <h2>Reading List</h2>
-            <div class="section-content">
-                <div class="reading-row technical-row">
-                    <div class="reading-category">
-                        <h3>Papers</h3>
+            <h2>Reading</h2>
+            <div class="section-content reading-stack">
+                <details>
+                    <summary>Papers</summary>
                         <ul class="reading-list">
                             <li>
                                 <span class="book-title">Learning to Adapt Pre-trained Language Models to Unseen Domains</span>
@@ -247,10 +134,10 @@
                                 <span class="author">2003</span>
                             </li>
                         </ul>
-                    </div>
+                </details>
 
-                    <div class="reading-category">
-                        <h3>Technical</h3>
+                <details>
+                    <summary>Technical</summary>
                         <ul class="reading-list">
                             <li>
                                 <span class="book-title">Designing Data-Intensive Applications</span>
@@ -266,7 +153,7 @@
                             </li>
                             <li>
                                 <span class="book-title">The Pragmatic Programmer</span>
-                                <span class="author">Dave Thomas & Andy Hunt</span>
+                                <span class="author">Dave Thomas &amp; Andy Hunt</span>
                             </li>
                             <li>
                                 <span class="book-title">The Beginning of Infinity</span>
@@ -285,12 +172,10 @@
                                 <span class="author">Morgan Housel</span>
                             </li>
                         </ul>
-                    </div>
-                </div>
+                </details>
 
-                <div class="reading-row other-row">
-                    <div class="reading-category">
-                        <h3>Non-Fiction</h3>
+                <details>
+                    <summary>Non-fiction</summary>
                         <ul class="reading-list">
                             <li>
                                 <span class="book-title">Thinking, Fast and Slow</span>
@@ -353,10 +238,10 @@
                                 <span class="author">Judea Pearl</span>
                             </li>
                         </ul>
-                    </div>
+                </details>
 
-                    <div class="reading-category">
-                        <h3>Fiction</h3>
+                <details>
+                    <summary>Fiction</summary>
                         <ul class="reading-list">
                             <li>
                                 <span class="book-title">Project Hail Mary</span>
@@ -415,14 +300,13 @@
                                 <span class="author">Olga Ravn</span>
                             </li>
                         </ul>
-                    </div>
-                </div>
+                </details>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2024 Tanmay Bagaria</p>
+        <p>© 2026 Tanmay Bagaria</p>
     </footer>
 
     <script>
