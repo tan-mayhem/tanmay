@@ -237,7 +237,7 @@ summary {
     position: relative;
     display: grid;
     place-items: center;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     border: 1px solid var(--border);
     border-radius: 6px;
@@ -263,6 +263,10 @@ summary {
 
 .wonder-photo img.jungfraujoch-photo {
     object-position: center 62%;
+}
+
+.wonder-photo img.yellowstone-photo {
+    object-position: center 58%;
 }
 
 .wonder-photo span {
