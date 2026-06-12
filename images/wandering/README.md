@@ -11,6 +11,7 @@ Current filenames:
 - `Crater_lake_np_2024.jpeg`
 - `Cinder_cone_lassen_volcanic_np_2024.jpeg`
 - `mesaverde_np_2025.jpeg`
+- `rocky_np_2025.jpeg`
 - `Mauna_kea_hawaii_2025.jpeg`
 - `Amsterdam_2025.jpeg`
 - `gent_belgium_2025.jpeg`

@@ -261,6 +261,10 @@ summary {
     filter: contrast(1.07) saturate(1.04);
 }
 
+.wonder-photo img.jungfraujoch-photo {
+    object-position: center 62%;
+}
+
 .wonder-photo span {
     z-index: 0;
 }
