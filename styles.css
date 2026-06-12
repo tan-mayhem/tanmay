@@ -1,9 +1,10 @@
 :root {
-    --text: #141414;
-    --muted: #626262;
-    --soft: #8c8c8c;
-    --border: #ececec;
-    --background: #ffffff;
+    --text: #eee9df;
+    --muted: #b7afa4;
+    --soft: #81796f;
+    --border: #2d2a26;
+    --background: #11100e;
+    --surface: #171512;
 }
 
 * {
@@ -14,6 +15,7 @@
 
 html {
     scroll-behavior: smooth;
+    color-scheme: dark;
 }
 
 body {
@@ -32,14 +34,14 @@ a {
 }
 
 a:hover {
-    color: #000;
+    color: #fffaf2;
 }
 
 nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(17, 16, 14, 0.94);
     border-bottom: 1px solid var(--border);
 }
 
@@ -221,6 +223,73 @@ summary {
     font-size: 0.84rem;
 }
 
+.wonder-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem;
+}
+
+.wonder-item {
+    min-width: 0;
+}
+
+.wonder-photo {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background:
+        linear-gradient(135deg, rgba(238, 233, 223, 0.07), rgba(238, 233, 223, 0)),
+        var(--surface);
+    color: var(--soft);
+    font-size: 0.82rem;
+}
+
+.wonder-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.wonder-photo img.mauna-kea-photo {
+    filter: contrast(1.07) saturate(1.04);
+}
+
+.wonder-photo span {
+    z-index: 0;
+}
+
+.wonder-item figcaption {
+    padding-top: 0.45rem;
+}
+
+.wonder-name,
+.wonder-meta {
+    display: inline;
+}
+
+.wonder-name {
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1.35;
+}
+
+.wonder-name::after {
+    content: ", ";
+}
+
+.wonder-meta {
+    color: var(--soft);
+    font-size: 0.88rem;
+}
+
 footer {
     max-width: 720px;
     margin: 0 auto;
@@ -277,6 +346,10 @@ footer {
     .reading-list {
         columns: 1;
     }
+
+    .wonder-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -303,7 +376,7 @@ footer {
         align-items: flex-start;
         gap: 0.45rem;
         padding: 0.9rem 0;
-        background: #fff;
+        background: var(--background);
         border-top: 1px solid var(--border);
     }
 
