@@ -226,7 +226,7 @@ summary {
 .wonder-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.15rem;
+    gap: 1rem 1.15rem;
 }
 
 .wonder-item {
@@ -237,7 +237,7 @@ summary {
     position: relative;
     display: grid;
     place-items: center;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
     border: 1px solid var(--border);
     border-radius: 6px;
@@ -270,7 +270,7 @@ summary {
 }
 
 .wonder-item figcaption {
-    padding-top: 0.45rem;
+    padding-top: 0.35rem;
 }
 
 .wonder-name,
@@ -279,8 +279,8 @@ summary {
 }
 
 .wonder-name {
-    color: var(--muted);
-    font-size: 0.88rem;
+    color: var(--soft);
+    font-size: 0.84rem;
     font-weight: 400;
     line-height: 1.35;
 }
@@ -291,7 +291,7 @@ summary {
 
 .wonder-meta {
     color: var(--soft);
-    font-size: 0.88rem;
+    font-size: 0.84rem;
 }
 
 footer {
