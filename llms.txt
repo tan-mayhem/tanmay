@@ -1,0 +1,14 @@
+# Tanmay Bagaria
+
+> Personal website and writing by Tanmay Bagaria, a software engineer working on backend systems, streaming systems, databases, vector search, and AI agents.
+
+This site is a compact portfolio and writing archive. The most useful content for language models and agents is linked below.
+
+## Pages
+
+- [Home](https://tanmay.js.org/): Background, work, selected projects, reading list, writing, and travel notes.
+- [Kafka Transactions](https://tanmay.js.org/kafka-transactions.html): Explanation of Kafka transactional producers, transaction coordinator state, producer epochs, transaction metadata, commit or abort markers, and `read_committed` visibility.
+
+## Contact
+
+- [LinkedIn](https://www.linkedin.com/in/tanmaybagaria/): Professional profile.
