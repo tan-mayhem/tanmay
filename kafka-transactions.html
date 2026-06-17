@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kafka Transactions | Tanmay Bagaria</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCGFFJ1HRR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PCGFFJ1HRR');
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="site-nav">
+                <a href="index.html#about">home</a>
+                <a href="index.html#experience">work</a>
+                <a href="index.html#projects">projects</a>
+                <a href="index.html#writing">writing</a>
+                <a href="index.html#reading">reading</a>
+                <a href="index.html#wandering">wandering</a>
+                <a href="https://www.linkedin.com/in/tanmaybagaria/" target="_blank" rel="noopener">linkedin</a>
+                <a href="mailto:tanmaybagaria@ymail.com">email</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <article class="article">
+            <header class="article-header">
+                <a class="back-link" href="index.html#writing">back to writing</a>
+                <h1>Kafka Transactions</h1>
+                <p class="article-lede">Kafka transactions are implemented through coordinator state, producer epochs, transaction metadata, and commit or abort markers written to partition logs.</p>
+            </header>
+
+            <p>
+                Kafka's producer API makes transactions feel compact: initialize, begin, send, commit or abort. Underneath that small surface area is a distributed protocol built around producer identity, epochs, transaction metadata, coordinator state, and commit or abort markers written back to the logs.
+            </p>
+
+            <p>
+                Kafka transactions are a coordination protocol layered onto the log. The transaction coordinator records intent, fences stale producers, tracks which partitions are part of the transaction, and eventually causes markers to be written so consumers using <code>read_committed</code> can decide what to expose.
+            </p>
+
+            <h2>The Main Actors</h2>
+            <p>
+                A transactional producer does not just write records to partition leaders. It first establishes an identity with a transaction coordinator. That coordinator owns the metadata for a given <code>transactional.id</code>, including the producer id, producer epoch, transaction state, timeout, and the set of partitions touched by the transaction.
+            </p>
+
+            <ul>
+                <li><span>Producer:</span> sends transactional requests and regular produce requests.</li>
+                <li><span>Transaction coordinator:</span> owns the transaction metadata for a <code>transactional.id</code>.</li>
+                <li><span>Transaction log:</span> an internal Kafka topic where transaction metadata changes are persisted.</li>
+                <li><span>Partition leaders:</span> store data records and later receive commit or abort markers.</li>
+                <li><span>Consumers:</span> use isolation level to decide whether uncommitted transactional records are visible.</li>
+            </ul>
+
+            <h2>The Request Flow</h2>
+            <p>
+                The happy path is easier to follow when viewed as a sequence of protocol requests. The names below are public Kafka protocol concepts, but the exact version and fields vary by Kafka release.
+            </p>
+
+            <div class="flow-list" aria-label="Kafka transaction request flow">
+                <div>
+                    <span>1</span>
+                    <p><strong>InitProducerId</strong> creates or retrieves the producer id and epoch for a <code>transactional.id</code>. This is also where old producers can be fenced.</p>
+                </div>
+                <div>
+                    <span>2</span>
+                    <p><strong>AddPartitionsToTxn</strong> tells the coordinator which topic partitions belong to the transaction.</p>
+                </div>
+                <div>
+                    <span>3</span>
+                    <p><strong>Produce</strong> writes records to the partition leaders using the producer id, epoch, and sequence numbers.</p>
+                </div>
+                <div>
+                    <span>4</span>
+                    <p><strong>EndTxn</strong> records the decision to commit or abort in the coordinator's transaction metadata.</p>
+                </div>
+                <div>
+                    <span>5</span>
+                    <p><strong>WriteTxnMarkers</strong> is sent internally so partition leaders append commit or abort markers for the transaction.</p>
+                </div>
+            </div>
+
+            <h2>The State Machine</h2>
+            <p>
+                The transaction coordinator can be understood as a state machine around a single <code>transactional.id</code>. The simplified version below leaves out some implementation detail, but it captures the transitions that explain why commit, abort, and fencing behave the way they do.
+            </p>
+
+            <figure class="state-diagram">
+                <img src="kafka_transaction_state.png" alt="Hand-drawn Kafka transaction coordinator state machine diagram">
+            </figure>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th>What it means</th>
+                            <th>Common way to reach it</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Empty</td>
+                            <td>The coordinator has metadata, but there is no active transaction.</td>
+                            <td><code>InitProducerId</code>, or a new transaction after a previous completion.</td>
+                        </tr>
+                        <tr>
+                            <td>Ongoing</td>
+                            <td>A transaction is open and may include records across one or more partitions.</td>
+                            <td><code>AddPartitionsToTxn</code> or another operation that begins transactional work.</td>
+                        </tr>
+                        <tr>
+                            <td>PrepareCommit</td>
+                            <td>The coordinator has accepted the intent to commit, but markers still need to be written.</td>
+                            <td><code>EndTxn</code> with the commit flag.</td>
+                        </tr>
+                        <tr>
+                            <td>PrepareAbort</td>
+                            <td>The coordinator has accepted the intent to abort, but markers still need to be written.</td>
+                            <td><code>EndTxn</code> with the abort flag, or fencing that forces the old transaction to abort.</td>
+                        </tr>
+                        <tr>
+                            <td>PrepareEpochFence</td>
+                            <td>A newer producer epoch is taking ownership and an older producer must be fenced out.</td>
+                            <td><code>InitProducerId</code> for the same <code>transactional.id</code> with a newer epoch.</td>
+                        </tr>
+                        <tr>
+                            <td>CompleteCommit</td>
+                            <td>The transaction is committed and commit markers have been written.</td>
+                            <td>Successful internal marker write for the partitions in the transaction.</td>
+                        </tr>
+                        <tr>
+                            <td>CompleteAbort</td>
+                            <td>The transaction is aborted and abort markers have been written.</td>
+                            <td>Successful internal marker write for the partitions in the transaction.</td>
+                        </tr>
+                        <tr>
+                            <td>Dead</td>
+                            <td>The transaction metadata is no longer usable for future operations.</td>
+                            <td>Unrecoverable coordinator-side state.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Why Producer Epochs Matter</h2>
+            <p>
+                The producer id says which logical producer owns a stream of transactional writes. The producer epoch says which incarnation of that producer is current. If an old process pauses, loses connectivity, and later resumes, Kafka cannot let it continue writing as if nothing happened. That old process might otherwise interleave stale writes with a newer process using the same <code>transactional.id</code>.
+            </p>
+
+            <p>
+                Fencing solves this. When a new producer is initialized for the same transactional id, the coordinator can bump the epoch. Requests from the older epoch are rejected. If the older producer had an unfinished transaction, the coordinator moves through an abort path so the system can converge on one valid owner and one visible outcome.
+            </p>
+
+            <h2>Commit Has Three Pieces</h2>
+            <p>
+                A commit is not just a client saying "commit." When the producer sends <code>EndTxn(COMMIT)</code>, the coordinator first records the intent by moving the transaction metadata to <code>PrepareCommit</code>. It then sends marker writes to the leaders of the partitions that participated in the transaction, so those logs receive commit control records. After the markers are written, the coordinator can record the completed state for the transaction.
+            </p>
+
+            <p>
+                Those markers matter because consumers do not ask the coordinator about every record they read. The log itself needs enough information for a <code>read_committed</code> consumer to return committed transactional records, skip aborted transactional records, and avoid exposing records whose transaction outcome is not yet known.
+            </p>
+
+            <h2>The Mental Model</h2>
+            <p>
+                Kafka transactions are a protocol for making log visibility deterministic in the presence of multiple partitions, retries, and producer failures. The coordinator does not make the data records appear atomically by moving them around. It records ownership and outcome through transaction metadata:
+            </p>
+
+            <ul>
+                <li><span>Ownership:</span> producer id and epoch decide which producer instance is allowed to write.</li>
+                <li><span>Scope:</span> transaction metadata records which partitions are part of the transaction.</li>
+                <li><span>Outcome:</span> commit or abort markers let partition logs reveal the final transaction decision.</li>
+                <li><span>Visibility:</span> consumers use isolation level to decide whether those records should be returned.</li>
+            </ul>
+
+            <p>
+                The commit or abort decision is distributed across protocol requests, the coordinator state machine, persistent metadata, and markers written into the same log abstraction Kafka is already built around.
+            </p>
+
+            <p class="article-date article-footer-date">May 2025</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2026 Tanmay Bagaria</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (menuToggle && navLinks) {
+            const closeMenu = () => {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('is-open');
+            };
+
+            menuToggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                menuToggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            navLinks.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 480) {
+                        closeMenu();
+                    }
+                });
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 480) {
+                    closeMenu();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
