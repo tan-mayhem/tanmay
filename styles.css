@@ -173,6 +173,14 @@ h3 {
     margin-top: 0.35rem;
 }
 
+.project-archive {
+    margin-top: 1.6rem;
+}
+
+.project-archive .plain-list {
+    margin-top: 0.72rem;
+}
+
 .writing-preview {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
